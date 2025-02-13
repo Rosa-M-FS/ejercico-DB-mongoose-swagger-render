@@ -5,9 +5,12 @@ const { dbConnection } = require('./config/config');
 const routes = require('./routes');
 
 const mongoose = require("mongoose");
-const { MONGO_URI } = require("./config/keys");
-const swaggerUI = require('swagger-ui-express')
-const docs = require('./docs/index')
+/* const { MONGO_URI } = require("./config/keys"); */
+require('dotenv').config();  
+const MONGO_URI = process.env.MONGO_URI;
+
+const swaggerUI = require('swagger-ui-express');
+const docs = require('./docs/index');
 
 app.use(express.json());
 
